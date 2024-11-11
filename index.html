@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frontend Mentor | E-commerce Product Page</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="menu__btns">
+          <div class="hamburger">
+            <img
+              src="./images/hamburger-menu.svg"
+              alt="hamburger-menu"
+              class="hamburger__menu"
+            />
+          </div>
+        </div>
+        <div class="nav__logo">
+          <img src="./images/sneakers.png" alt="Nav Logo" class="nav__logo" />
+          <div class="nav__links">
+            <img
+              src="./images/close-menu.png"
+              alt="close-menu"
+              class="close__menu"
+            />
+            <ul class="nav__list">
+              <li><a href="#">Collections</a></li>
+              <li><a href="#">Men</a></li>
+              <li><a href="#">Women</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="checkout">
+          <div class="cart__container">
+            <img src="./images/cart.svg" alt="Cart image" class="cart" />
+            <div class="items__number">1</div>
+          </div>
+          <img src="./images/avatar.png" alt="Avatar" class="avatar" />
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="product__preview__images">
+        <div class="product__image">
+          <div class="slider__controls">
+            <img
+              src="./images/prev-btn.png"
+              alt="Previous Button"
+              class="prev__btn"
+            />
+
+            <img
+              src="./images/next-btn.png"
+              alt="Next Button"
+              class="next__btn"
+            />
+          </div>
+          <div class="cart__checkout__display">
+            <p class="checkout__heading">Cart</p>
+
+            <p class="checkout__display">Your cart is empty.</p>
+
+            <div class="item__selected" style="display: none">
+              <img
+                src="./images/shoe1.png"
+                alt="sneaker-selected"
+                class="sneaker__selected"
+              />
+
+              <div class="items__selected__details">
+                <p class="sneaker__edition">Fall Limited Edition Sneakers</p>
+                <p class="sneaker__price">
+                  $125.00 x <span class="no__items__selected">3</span>
+                  <span class="total">$375.00</span>
+                </p>
+              </div>
+              <img
+                src="./images/delete-icon.png"
+                alt="delete-icon"
+                class="delete__icon"
+              />
+            </div>
+            <button class="checkout__btn">Checkout</button>
+          </div>
+          <div class="slides">
+            <img
+              src="./images/shoe1.png"
+              alt="Sneaker 1 Display"
+              class="main__product__display slide"
+            />
+            <img
+              src="./images/shoe2.png"
+              alt="Sneaker 2 Display"
+              class="slide"
+            />
+            <img
+              src="./images/shoe3.png"
+              alt="Sneaker 3 Display"
+              class="slide"
+            />
+            <img
+              src="./images/shoe4.png"
+              alt="Sneaker 4 Display"
+              class="slide"
+            />
+          </div>
+
+          <div class="collections">
+            <img src="./images/shoe1.png" alt="Sneaker 1 Display" />
+            <img src="./images/shoe2.png" alt="Sneaker 2 Display" />
+            <img src="./images/shoe3.png" alt="Sneaker 3 Display" />
+            <img src="./images/shoe4.png" alt="Sneaker 4 Display" />
+          </div>
+        </div>
+      </section>
+
+      <section class="product__description">
+        <h3>SNEAKER COMPANY</h3>
+        <h1>Fall Limited Edition Sneakers</h1>
+        <p class="description">
+          These low-profile sneakers are your perfect casual wear companion.
+          Featuring a durable rubber outer sole, they’ll withstand everything
+          the weather can offer.
+        </p>
+        <div class="prices__section">
+          <div class="main__price">
+            <p class="price">$125.00</p>
+            <p class="discount">50%</p>
+          </div>
+
+          <div class="slashed__price">
+            <p>$250.00</p>
+          </div>
+        </div>
+
+        <div class="cart__section">
+          <div class="item__control">
+            <img src="./images/minus.png" alt="decrease-btn" class="decrease__btn">
+            <!-- <p class="decrease__btn">-</p> -->
+            <p class="items__quantity">0</p>
+            <img src="./images/plus.png" alt="increase-btn" class="increase__btn">
+            <!-- <p class="increase__btn">+</p> -->
+          </div>
+          <div class="add__to__cart__btn">
+            <img src="./images/cart__img.png" alt="Cart image" />
+            <p>Add to cart</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
