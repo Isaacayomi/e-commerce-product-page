@@ -108,20 +108,17 @@ const displayCartMenu = function () {
 
 const displaySelectedItems = function () {
   if (parseInt(itemsQuantity.textContent) === 0) {
-    // If no items are selected, show "Cart is empty" and hide selected items
+    // Show "Empty Cart" display
     document.querySelector(".checkout__display").style.display = "block";
-    itemSelected.style.display = "none"; // Hide the selected item
-    prevBtn.style.opacity = "100";
-    nextBtn.style.opacity = "100";
+    itemSelected.style.display = "none"; // Hide the selected item details
+    checkOutBtn.style.display = "none"; // Hide checkout button
   } else {
-    // If items are selected, show them
+    // Show item details when items are selected
     prevBtn.style.opacity = "0";
     nextBtn.style.opacity = "0";
     document.querySelector(".checkout__display").style.display = "none";
-    itemSelected.style.display = "flex"; // Show the selected item
+    itemSelected.style.display = "flex"; // Show selected item details
 
-    // Update the cart with the selected item details
-    let itemsSelected = document.querySelector(".item__selected");
     let html = `
       <img
         src="./images/shoe1.png"
@@ -145,22 +142,23 @@ const displaySelectedItems = function () {
         class="delete__icon"
       />
     `;
-    itemsSelected.innerHTML = html;
+    itemSelected.innerHTML = html;
     checkOutBtn.style.display = "block";
   }
 
   const deleteIcon = document.querySelector(".delete__icon");
   deleteIcon.addEventListener("click", deleteSelectedItems);
-
-  displayCheckoutMenu.style.opacity = 100;
 };
 
 const addToCart = function () {
   if (itemsQuantity.textContent === "0") {
     displayItemsQuantity.textContent = "";
     checkOutBtn.style.opacity = 0;
+    itemSelected.style.display = "none"; // Hide selected item display
+    document.querySelector(".checkout__display").style.display = "block"; // Show 'Empty Cart' display
     return;
   }
+
   displayItemsQuantity.textContent = itemsQuantity.textContent;
   displayItemsQuantity.style.display = "block";
   checkOutBtn.style.display = "block";
@@ -206,5 +204,5 @@ addToCartBtn.addEventListener("click", addToCart);
 // cartIcon.addEventListener("click", displayCartMenu);
 cartIcon.addEventListener("click", function () {
   displayCartMenu();
-  displaySelectedItems();
+  // displaySelectedItems();
 });
