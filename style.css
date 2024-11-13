@@ -44,7 +44,7 @@ nav {
 
 .nav__list li a {
   height: 1.625rem;
-  padding-bottom: 1.62rem;
+  /* padding-bottom: 1.62rem; */
   transition: 0.4s ease-in-out;
 }
 
@@ -566,6 +566,19 @@ nav {
 }
 
 @media screen and (min-width: 1024px) {
+  main {
+    position: relative;
+  }
+
+  .cart__checkout__display {
+    /* right: 100%; */
+    left: 190%;
+    top: -10%;
+    /* top: 50%; */
+    /* transform: translateY(-50%); */
+    z-index: 99;
+  }
+
   .nav__logo {
     padding-left: 0;
     margin-left: -13rem;

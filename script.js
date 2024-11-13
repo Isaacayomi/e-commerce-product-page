@@ -9,6 +9,8 @@ const slider = document.querySelector(".slides");
 const prevBtn = document.querySelector(".prev__btn");
 const nextBtn = document.querySelector(".next__btn");
 
+const collections = document.querySelectorAll(".sneakers__collections");
+
 const increaseBtn = document.querySelector(".increase__btn");
 const decreaseBtn = document.querySelector(".decrease__btn");
 const itemsQuantity = document.querySelector(".items__quantity");
@@ -79,6 +81,18 @@ const prevSlide = function () {
   goTo();
 };
 
+const miniCollections = function () {
+  collections.forEach(function (collection) {
+    collection.addEventListener("click", function () {
+      const collectionSrc = collection.getAttribute("src");
+
+      slides[curSlide].setAttribute("src", collectionSrc);
+    });
+  });
+};
+
+miniCollections();
+
 let count = 0;
 
 const increaseCount = function () {
@@ -92,6 +106,7 @@ const decreaseCount = function () {
     count = 0;
   }
   itemsQuantity.textContent = count;
+  displaySelectedItems();
 };
 
 const displayCartMenu = function () {
@@ -106,18 +121,51 @@ const displayCartMenu = function () {
   }
 };
 
+const addToCart = function () {
+  if (itemsQuantity.textContent === "0") {
+    displayItemsQuantity.textContent = "";
+    checkOutBtn.style.display = "none";
+    document.querySelector(".checkout__display").textContent =
+      "Your cart is empty.";
+    return;
+  }
+
+  // Show the items in the checkout menu
+  displayItemsQuantity.textContent = itemsQuantity.textContent;
+  displayItemsQuantity.style.display = "block";
+  checkOutBtn.style.display = "block";
+  displaySelectedItems();
+};
+
+const deleteSelectedItems = function () {
+  itemSelected.style.display = "none";
+  checkOutBtn.style.display = "none";
+
+  document.querySelector(".checkout__display").style.display = "block";
+  itemsQuantity.textContent = "0";
+  displayItemsQuantity.style.display = "none";
+
+  // Reset item quantity
+  itemsQuantity.textContent = 0;
+  count = 0;
+  console.log(itemsQuantity.textContent);
+
+  console.log("Cart has been cleared!");
+};
+
 const displaySelectedItems = function () {
   if (parseInt(itemsQuantity.textContent) === 0) {
-    // Show "Empty Cart" display
+    // Display 'Empty Cart' when no items are selected
     document.querySelector(".checkout__display").style.display = "block";
-    itemSelected.style.display = "none"; // Hide the selected item details
+    document.querySelector(".checkout__display").textContent =
+      "Your cart is empty.";
+    itemSelected.style.display = "none"; // Hide item details
     checkOutBtn.style.display = "none"; // Hide checkout button
+    displayItemsQuantity.style.display = "none"; // Hide item quantity indicator
   } else {
-    // Show item details when items are selected
-    prevBtn.style.opacity = "0";
-    nextBtn.style.opacity = "0";
+    // Display the selected item details when items are present
     document.querySelector(".checkout__display").style.display = "none";
-    itemSelected.style.display = "flex"; // Show selected item details
+    itemSelected.style.display = "flex"; // Show item details
 
     let html = `
       <img
@@ -143,45 +191,17 @@ const displaySelectedItems = function () {
       />
     `;
     itemSelected.innerHTML = html;
-    checkOutBtn.style.display = "block";
+    checkOutBtn.style.display = "block"; // Show checkout button when items are present
+    displayItemsQuantity.style.display = "block"; // Show item quantity indicator
   }
 
+  // Reassign event listener to the delete icon
   const deleteIcon = document.querySelector(".delete__icon");
-  deleteIcon.addEventListener("click", deleteSelectedItems);
-};
-
-const addToCart = function () {
-  if (itemsQuantity.textContent === "0") {
-    displayItemsQuantity.textContent = "";
-    checkOutBtn.style.opacity = 0;
-    itemSelected.style.display = "none"; // Hide selected item display
-    document.querySelector(".checkout__display").style.display = "block"; // Show 'Empty Cart' display
-    return;
+  if (deleteIcon) {
+    deleteIcon.addEventListener("click", deleteSelectedItems);
   }
-
-  displayItemsQuantity.textContent = itemsQuantity.textContent;
-  displayItemsQuantity.style.display = "block";
-  checkOutBtn.style.display = "block";
-
-  displaySelectedItems();
 };
-
-const deleteSelectedItems = function () {
-  itemSelected.style.display = "none";
-  checkOutBtn.style.display = "none";
-
-  document.querySelector(".checkout__display").style.display = "block";
-  itemsQuantity.textContent = "0";
-  displayItemsQuantity.style.display = "none";
-
-  // Reset item quantity
-  itemsQuantity.textContent = 0;
-  count = 0;
-  console.log(itemsQuantity.textContent);
-
-  console.log("Cart has been cleared!");
-};
-
+displaySelectedItems();
 // Nav events
 openIcon.addEventListener("click", openNav);
 closeIcon.addEventListener("click", closeNav);
