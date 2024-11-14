@@ -26,19 +26,7 @@ This project is a fully functional eCommerce product page that simulates the use
 3. **Add items to the cart**: Increase or decrease the item quantity and click the "Add to Cart" button.
 4. **Access the cart**: Click on the cart icon to view or remove items from the cart.
 
-## Live Site
+## Links
 
-
-## Screenshot
-
-### Mobile View
-
-![Mobile view](screenshots/iPhone-12-PRO-MAX-127.0.0.1.png);
-
-### Tablet View
-
-![Tablet View](screenshots/iPad-PRO-11-127.0.0.1%20.png)
-
-### Desktop View
-
-![Desktop View](screenshots/Macbook-Air-127.0.0.1.png)
+- Solution URL: [https://github.com/Isaacayomi/e-commerce-product-page](https://github.com/Isaacayomi/e-commerce-product-page)
+- Live Site URL: [https://isaacayomi.github.io/e-commerce-product-page/](https://isaacayomi.github.io/e-commerce-product-page/)
