@@ -1,22 +1,44 @@
-# Using the Figma design file
+# eCommerce Product Page
 
-Using this design file will help you practice building projects in the same way professionals do. Seeing the details in the design will help you improve your accuracy when building projects and build projects faster.
+## Overview
 
-[Figma](https://www.figma.com/) is an extremely popular design tool that has a generous free tier and can also be used on both Windows and Mac computers.
+This project is a fully functional eCommerce product page that simulates the user experience of an online store, complete with product display, image carousel, lightbox feature, cart functionality, and responsive design. Users can interact with product images, manage their cart, and enjoy a seamless shopping experience across different device sizes.
 
-To get started with Figma, [download the correct app for your operating system](https://www.figma.com/downloads/). You can then open the app and open the `.fig` design file by dragging it over the app and dropping it into the projects home screen.
+## Features
 
-If you're going to use the Desktop App, you don't need to download the Font Installer from the downloads page. But if you're planning on using the Figma web app you should download and install it to ensure the fonts show up correctly.
+- **Image Carousel**: Users can navigate through product images using next/previous buttons.
+- **Lightbox Display**: Clicking on an image opens a lightbox with a focused view of the product.
+- **Mini Image Collection**: Users can click on thumbnails to change the main displayed image.
+- **Cart Functionality**: Users can add or remove items from their cart and view the total cost.
+- **Responsive Design**: The layout adapts to various screen sizes for an optimal user experience.
+- **Navigation Menu**: A hamburger menu is available for smaller screens, providing easy access to navigation links.
 
-If you haven't used Figma before, here are a couple of great resources to get you up to speed: 
+## Technologies Used
 
-- [“Everything Developers Need To Know About Figma” article on Smashing Magazine](https://www.smashingmagazine.com/2020/09/figma-developers-guide/)
-- ["Introduction to Figma for Developers" video with Ryan Warner and Jason Lengstorf on Learn with Jason](https://www.learnwithjason.dev/introduction-to-figma-for-developers)
+- **HTML**: Structure of the page.
+- **CSS**: Styling and layout, including animations and transitions.
+- **JavaScript**: Dynamic functionality such as the image carousel, lightbox, and cart operations.
 
----
+## How to Use
 
-**⚠️ IMPORTANT ⚠️: Please be sure not to share our design files with anyone else. We include `.gitignore` files in the starter code download to help prevent you from accidentally uploading it to GitHub. Another easy way to prevent this is to keep the design file separate from your codebase.**
+1. **Navigate through the product images**: Use the arrow buttons or click on thumbnail images.
+2. **View the lightbox**: Click on the main product image to open the lightbox view.
+3. **Add items to the cart**: Increase or decrease the item quantity and click the "Add to Cart" button.
+4. **Access the cart**: Click on the cart icon to view or remove items from the cart.
 
----
+## Live Site
+![Live Site]()
 
-Thanks for being a PRO member. We hope you enjoy the challenge! 🙂
+## Screenshot
+
+### Mobile View
+
+![Mobile view](screenshots/iPhone-12-PRO-MAX-127.0.0.1%20.png)
+
+### Tablet View
+
+![Tablet View](screenshots/iPad-PRO-11-127.0.0.1%20.png)
+
+### Desktop View
+
+![Desktop View](screenshots/Macbook-Air-127.0.0.1.png)

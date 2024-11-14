@@ -10,6 +10,7 @@ const prevBtn = document.querySelector(".prev__btn");
 const nextBtn = document.querySelector(".next__btn");
 
 const collections = document.querySelectorAll(".sneakers__collections");
+const collectionSlider = document.querySelector(".collections");
 
 const increaseBtn = document.querySelector(".increase__btn");
 const decreaseBtn = document.querySelector(".decrease__btn");
@@ -25,6 +26,13 @@ const totalCost = document.querySelector(".total");
 const checkOutBtn = document.querySelector(".checkout__btn");
 
 const deleteIcon = document.querySelector(".delete__icon");
+
+// lightbox feature
+const lightbox = document.querySelector(".lightbox");
+const lightboxSlides = document.querySelectorAll(".lightbox__slide");
+const lightboxPrevBtn = document.querySelector(".lightbox__prev__btn");
+const lightboxNextBtn = document.querySelector(".lightbox__next__btn");
+const lightboxCloseBtn = document.querySelector(".close__lightbox");
 
 let curSlide = 0;
 let maxSlide = slides.length - 1;
@@ -159,9 +167,9 @@ const displaySelectedItems = function () {
     document.querySelector(".checkout__display").style.display = "block";
     document.querySelector(".checkout__display").textContent =
       "Your cart is empty.";
-    itemSelected.style.display = "none"; // Hide item details
-    checkOutBtn.style.display = "none"; // Hide checkout button
-    displayItemsQuantity.style.display = "none"; // Hide item quantity indicator
+    itemSelected.style.display = "none";
+    checkOutBtn.style.display = "none";
+    displayItemsQuantity.style.display = "none";
   } else {
     // Display the selected item details when items are present
     document.querySelector(".checkout__display").style.display = "none";
@@ -191,8 +199,8 @@ const displaySelectedItems = function () {
       />
     `;
     itemSelected.innerHTML = html;
-    checkOutBtn.style.display = "block"; // Show checkout button when items are present
-    displayItemsQuantity.style.display = "block"; // Show item quantity indicator
+    checkOutBtn.style.display = "block";
+    displayItemsQuantity.style.display = "block";
   }
 
   // Reassign event listener to the delete icon
@@ -225,4 +233,61 @@ addToCartBtn.addEventListener("click", addToCart);
 cartIcon.addEventListener("click", function () {
   displayCartMenu();
   // displaySelectedItems();
+});
+
+const mediaQuery = window.matchMedia("(min-width: 1024px)");
+
+// Lightbox functionalities
+let currentLightboxSlide = 0;
+const maxLightboxSlide = lightboxSlides.length - 1;
+
+// Function to show the lightbox and update the image
+const displayLightBox = function () {
+  if (mediaQuery.matches) {
+    lightbox.style.display = "block";
+    updateLightboxImage(currentLightboxSlide);
+  }
+};
+
+// Function to close the lightbox
+const closeLightbox = function () {
+  lightbox.style.display = "none";
+};
+
+// Function to update lightbox images based on the current slide index
+const updateLightboxImage = function (index) {
+  lightboxSlides.forEach((slide, i) => {
+    slide.style.transform = `translateX(${150 * (i - index)}%)`;
+  });
+};
+
+// Event listeners for lightbox navigation
+lightboxNextBtn.addEventListener("click", function () {
+  currentLightboxSlide = (currentLightboxSlide + 1) % lightboxSlides.length;
+  updateLightboxImage(currentLightboxSlide);
+});
+
+lightboxPrevBtn.addEventListener("click", function () {
+  currentLightboxSlide =
+    (currentLightboxSlide - 1 + lightboxSlides.length) % lightboxSlides.length;
+  updateLightboxImage(currentLightboxSlide);
+});
+
+// Event listener for closing the lightbox
+lightboxCloseBtn.addEventListener("click", closeLightbox);
+
+// Initializing the lightbox display when clicking the main slider
+slider.addEventListener("click", function () {
+  displayLightBox();
+  mainEl.style.overflow = "hidden";
+});
+
+// Ensure slides are positioned correctly at the start
+lightboxSlides.forEach(function (slide, i) {
+  slide.style.transform = `translateX(${100 * i}%)`;
+});
+
+slider.addEventListener("click", function () {
+  console.log("working");
+  displayLightBox();
 });

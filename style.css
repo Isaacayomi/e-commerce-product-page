@@ -455,6 +455,11 @@ nav {
   border: 3px solid transparent;
 }
 
+.lightbox,
+.close__lightbox {
+  display: none;
+}
+
 @media screen and (min-width: 768px) {
   nav {
     padding-block: 2.56rem;
@@ -570,12 +575,69 @@ nav {
     position: relative;
   }
 
+  .lightbox {
+    display: none;
+    max-width: 34.375rem;
+    width: 100%;
+    flex-shrink: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+  }
+
+  .lightbox__slides {
+    position: relative;
+    max-width: 34.375rem;
+    width: 100%;
+    height: 34.375rem;
+  }
+
+  .lightbox__slide {
+    border-radius: 0.9375rem;
+    margin-top: 1rem;
+    position: absolute;
+    top: 0;
+    max-width: 34.375rem;
+    width: 100%;
+    height: 34.375rem;
+    transition: transform 1s;
+  }
+
+  .lightbox .lightbox__slider__controls {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: absolute;
+    z-index: 999;
+    top: 50%;
+    transform: translateY(-65%);
+  }
+
+  .lightbox .collections {
+    display: flex;
+    align-items: center;
+    margin-left: 3rem;
+    justify-content: center;
+  }
+
+  .lightbox .slides {
+    display: block;
+    opacity: 100;
+  }
+
+  .close__lightbox {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: -1%;
+    z-index: 99;
+  }
+
   .cart__checkout__display {
-    /* right: 100%; */
     left: 190%;
     top: -10%;
-    /* top: 50%; */
-    /* transform: translateY(-50%); */
     z-index: 99;
   }
 
@@ -675,6 +737,13 @@ nav {
     height: 27.8125rem;
     /* border: 1px solid black; */
     z-index: 99;
+  }
+
+  .main__product__display:hover,
+  .close__lightbox:hover,
+  .lightbox__prev__btn:hover,
+  .lightbox__next__btn:hover {
+    cursor: pointer;
   }
 
   .product__description {
