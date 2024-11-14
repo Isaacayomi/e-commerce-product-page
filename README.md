@@ -27,13 +27,13 @@ This project is a fully functional eCommerce product page that simulates the use
 4. **Access the cart**: Click on the cart icon to view or remove items from the cart.
 
 ## Live Site
-![Live Site]()
+
 
 ## Screenshot
 
 ### Mobile View
 
-![Mobile view](screenshots/iPhone-12-PRO-MAX-127.0.0.1%20.png)
+![Mobile view](screenshots/iPhone-12-PRO-MAX-127.0.0.1.png);
 
 ### Tablet View
 
