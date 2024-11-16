@@ -33,6 +33,7 @@ const lightboxSlides = document.querySelectorAll(".lightbox__slide");
 const lightboxPrevBtn = document.querySelector(".lightbox__prev__btn");
 const lightboxNextBtn = document.querySelector(".lightbox__next__btn");
 const lightboxCloseBtn = document.querySelector(".close__lightbox");
+const overlay = document.querySelector(".overlay");
 
 let curSlide = 0;
 let maxSlide = slides.length - 1;
@@ -114,7 +115,6 @@ const decreaseCount = function () {
     count = 0;
   }
   itemsQuantity.textContent = count;
-  displaySelectedItems();
 };
 
 const displayCartMenu = function () {
@@ -245,6 +245,7 @@ const maxLightboxSlide = lightboxSlides.length - 1;
 const displayLightBox = function () {
   if (mediaQuery.matches) {
     lightbox.style.display = "block";
+    overlay.style.display = "block";
     updateLightboxImage(currentLightboxSlide);
   }
 };
@@ -252,6 +253,7 @@ const displayLightBox = function () {
 // Function to close the lightbox
 const closeLightbox = function () {
   lightbox.style.display = "none";
+  overlay.style.display = "none";
 };
 
 // Function to update lightbox images based on the current slide index
